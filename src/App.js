@@ -16,6 +16,7 @@ import LoginPage from './LoginPage/LoginPage';
 function App() {
   return (
     <Router>
+      <a href="#main" class="skip-link">Skip to main content</a>
       <Menu/>
       <Hero/>
       <div className='mainContainer'>

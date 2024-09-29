@@ -352,8 +352,9 @@ template {
 
 
 
-
-
+$primary-color: #4d5791;
+$secondary-color: #b4c6f0;
+$font-stack: Tahoma, Arial;
 
 * {
   box-sizing: border-box;
@@ -366,66 +367,81 @@ body {
 
 nav.menu {
   width: 100%;
-  background-color: #4d5791;
+  background-color: $primary-color;
   height: 44px;
   padding: 0 40px;
-}
 
-nav.menu ul,
-nav.menu ul li {
-  margin: 0;
-  padding: 0 ;
-  list-style: none;
-  display: inline-block;
-}
+  ul,
+  li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: inline-block;
 
-nav.menu ul li a {
-  display: block;
-  padding: 0 20px;
-  line-height: 44px;
-  font-size: 1.4em;
-  text-decoration: none;
-  color: #fff;
-  margin: 0;
-}
+    a {
+      display: block;
+      padding: 0 20px;
+      line-height: 44px;
+      font-size: 1.4em;
+      text-decoration: none;
+      color: #fff;
+      margin: 0;
 
-nav.menu ul li a:hover  {
-  background-color: white;
-  color: #4d5791;
+      &:hover {
+        background-color: white;
+        color: $primary-color;
+      }
+    }
+  }
 }
 
 section.hero {
   height: 350px;
-  background-color: #b4c6f0;
-  background-image: url('/public/bg.png');
+  background-color: $secondary-color;
+  background-image: url('../public/bg.png');
   background-size: 400px;
   background-repeat: no-repeat;
   background-position: center bottom;
   padding-top: 40px;
+
+  h1,
+  h2 {
+    text-align: center;
+    margin: 0;
+  }
+
+  h1 {
+    color: #fff;
+    font-size: 4.2em;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    color: $primary-color;
+  }
 }
 
-section.hero h1,
-section.hero h2 {
-  text-align: center;
-  margin: 0;
-}
-
-section.hero h1 {
-  color: #fff;
-  font-size: 4.2em;
-  margin-bottom: 20px;
-}
-
-section.hero h2 {
-  color: #4d5791;
-}
 
 .container {
   padding: 40px;
-  width: 100%;    
+  width: 100%;
   display: flex;
-  flex-wrap: wrap; 
-  justify-content: center; 
+  flex-wrap: wrap;
+  justify-content: center;
+
+  article.text-box {
+    display: inline-block;
+    width: 100%;
+    max-width: 340px;
+    text-align: justify;
+    margin: 20px;
+    flex: 1 1 340px;
+
+    canvas {
+      width: 100%;
+      height: auto;
+    }
+  }
 }
 
 .page-area {
@@ -443,20 +459,6 @@ section.hero h2 {
 
 .center {
   text-align: center;
-}
-
-.container article.text-box {
-  display: inline-block;
-  width: 100%;
-  max-width: 340px;
-  text-align: justify;
-  margin: 20px;    
-  flex: 1 1 340px;
-}
-
-article.text-box canvas { 
-  width: 100%; 
-  height: auto; 
 }
 
 #d3-chart {
@@ -492,12 +494,12 @@ polyline{
   width: 1px;
   height: 1px;
   overflow: hidden;
-}
 
-.skip-link:focus {
-  position: static;
-  width: auto;
-  height: auto;
+  &:focus {
+    position: static;
+    width: auto;
+    height: auto;
+  }
 }
 
 @media screen and (min-width: 768px) {
